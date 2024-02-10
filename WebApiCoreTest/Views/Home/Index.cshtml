@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Any video download</h1>
+<hr />
+
+
+<div class="row">
+    <div class="col-sm-5 mx-auto">
+        <div>
+            <form>
+                <textarea name="newurl" class="box-shadow form-control border-2"></textarea>
+                <input type="submit" value="Search" class="btn btn-success mt-2"/>
+            </form>
+        </div>
+        <br />
+        <div class="row">
+            <div class="container-fluid">@Model.title</div>
+        </div>
+        <br />
+        <div class="text-center">
+            <img src="@Model.picture" height="450" />
+        </div>
+        <br />
+        @if (Model.links != null)
+        {
+            @foreach (var link in Model.links)
+            {
+                <div class="text-center">
+                    <a href="@link.link" class="btn btn-primary" target="_blank">Download @link.quality quality</a>
+                </div>
+                <br />
+            }
+        }
+        else
+        {
+            <td>N/A</td>
+            <td>N/A</td>
+        }
+    </div>
+</div>
